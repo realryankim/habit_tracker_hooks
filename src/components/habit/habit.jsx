@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './habit.module.css';
 
-const Habit = ({ habit, onIncrement, onDecrement }) => {
+const Habit = ({ habit, onIncrement, onDecrement, onDelete }) => {
   const { name, count } = habit;
 
   const handleIncrement = () => {
@@ -10,6 +10,10 @@ const Habit = ({ habit, onIncrement, onDecrement }) => {
 
   const handleDecrement = () => {
     onDecrement(habit);
+  };
+
+  const handleDelete = () => {
+    onDelete(habit);
   };
 
   return (
@@ -22,7 +26,7 @@ const Habit = ({ habit, onIncrement, onDecrement }) => {
       <button onClick={handleDecrement} className={styles.minus}>
         <i className='fas fa-minus-square'></i>
       </button>
-      <button className={styles.trash}>
+      <button onClick={handleDelete} className={styles.trash}>
         <i className='fas fa-trash'></i>
       </button>
     </li>

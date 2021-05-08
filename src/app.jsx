@@ -43,6 +43,25 @@ const App = props => {
     setHabits(newHabits);
   };
 
+  const handleDelete = habit => {
+    const newHabits = habits.filter(item => item.id !== habit.id);
+
+    setHabits(newHabits);
+  };
+
+  const handleAdd = name => {
+    const newHabits = [
+      ...habits,
+      {
+        id: new Date(),
+        name,
+        count: 0,
+      },
+    ];
+
+    setHabits(newHabits);
+  };
+
   return (
     <>
       <Navbar />
@@ -50,6 +69,8 @@ const App = props => {
         habits={habits}
         onIncrement={handleIncrement}
         onDecrement={handleDecrement}
+        onDelete={handleDelete}
+        onAdd={handleAdd}
       />
     </>
   );
