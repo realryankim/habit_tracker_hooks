@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Habits from './components/habits/habits';
 import Navbar from './components/navbar/navbar';
+import styles from './app.module.css';
 
 const App = props => {
   const [habits, setHabits] = useState([
@@ -21,10 +22,35 @@ const App = props => {
     },
   ]);
 
+  const handleIncrement = habit => {
+    const newHabits = habits.map(item => {
+      if (item.id === habit.id) {
+        return { ...habit, count: habit.count + 1 };
+      }
+      return item;
+    });
+    setHabits(newHabits);
+  };
+
+  const handleDecrement = habit => {
+    const newHabits = habits.map(item => {
+      if (item.id === habit.id) {
+        const count = habit.count - 1;
+        return { ...habit, count: count < 0 ? 0 : count };
+      }
+      return item;
+    });
+    setHabits(newHabits);
+  };
+
   return (
     <>
       <Navbar />
-      <Habits habits={habits} />
+      <Habits
+        habits={habits}
+        onIncrement={handleIncrement}
+        onDecrement={handleDecrement}
+      />
     </>
   );
 };
