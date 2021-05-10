@@ -3,7 +3,7 @@ import Habits from './components/habits/habits';
 import Navbar from './components/navbar/navbar';
 import styles from './app.module.css';
 
-const App = props => {
+function App() {
   const [habits, setHabits] = useState([
     {
       id: 1,
@@ -62,18 +62,29 @@ const App = props => {
     setHabits(newHabits);
   };
 
+  const handleReset = () => {
+    const newHabits = habits.map(habit => {
+      if (habit.count !== 0) {
+        return { ...habit, count: 0 };
+      }
+      return habit;
+    });
+    setHabits(newHabits);
+  };
+
   return (
-    <>
-      <Navbar />
+    <div className={styles.app}>
+      <Navbar totalCount={habits.filter(item => item.count > 0).length} />
       <Habits
         habits={habits}
         onIncrement={handleIncrement}
         onDecrement={handleDecrement}
         onDelete={handleDelete}
         onAdd={handleAdd}
+        onReset={handleReset}
       />
-    </>
+    </div>
   );
-};
+}
 
 export default App;

@@ -11,6 +11,9 @@ const HabitAddForm = ({ onAdd }) => {
     name && onAdd(name);
 
     formRef.current.reset();
+
+    // Another way to reset value
+    // inputRef.current.value = '';
   };
 
   return (

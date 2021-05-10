@@ -1,0 +1,36 @@
+.habit {
+  font-size: 2.5rem;
+  padding: 0.5em;
+}
+
+.habitCount {
+  display: inline-block;
+  text-align: center;
+  font-size: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  margin-left: 0.2em;
+  background-color: salmon;
+  color: white;
+  border-radius: 50%;
+}
+
+.habitButton {
+  font-size: 2.5rem;
+  margin: 0 0.1em;
+  background-color: transparent;
+}
+
+.habitButton:hover {
+  opacity: 0.8;
+}
+
+.habitIncrease,
+.habitDecrease {
+  color: goldenrod;
+}
+
+.habitDelete {
+  color: darkred;
+}

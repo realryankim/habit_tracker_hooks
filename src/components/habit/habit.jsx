@@ -19,14 +19,23 @@ const Habit = ({ habit, onIncrement, onDecrement, onDelete }) => {
   return (
     <li className={styles.habit}>
       <span className={styles.name}>{name}</span>
-      <span className={styles.count}>{count}</span>
-      <button onClick={handleIncrement} className={styles.plus}>
+      <span className={styles.habitCount}>{count}</span>
+      <button
+        onClick={handleIncrement}
+        className={`${styles.habitButton} ${styles.habitIncrease}`}
+      >
         <i className='fas fa-plus-square'></i>
       </button>
-      <button onClick={handleDecrement} className={styles.minus}>
+      <button
+        onClick={handleDecrement}
+        className={`${styles.habitButton} ${styles.habitDecrease}`}
+      >
         <i className='fas fa-minus-square'></i>
       </button>
-      <button onClick={handleDelete} className={styles.trash}>
+      <button
+        onClick={handleDelete}
+        className={`${styles.habitButton} ${styles.habitDelete}`}
+      >
         <i className='fas fa-trash'></i>
       </button>
     </li>
