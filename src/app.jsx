@@ -7,17 +7,22 @@ function App() {
   const [habits, setHabits] = useState([
     {
       id: 1,
-      name: 'Reading',
+      name: 'Running',
       count: 0,
     },
     {
       id: 2,
-      name: 'Reading',
+      name: 'Studying',
       count: 0,
     },
     {
       id: 3,
       name: 'Reading',
+      count: 0,
+    },
+    {
+      id: 4,
+      name: 'Coding',
       count: 0,
     },
   ]);
